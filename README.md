@@ -43,7 +43,7 @@ make qemu
 ## Running in Text Mode with QEMU
 To run the EFI application in text mode, where QEMU outputs to the terminal:
 ```bash
-qemu nographic
+make qemunographic
 ```
 
 ## Cleaning Up

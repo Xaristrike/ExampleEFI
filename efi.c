@@ -3,7 +3,7 @@
 
 EFI_STATUS EFIAPI efi_main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTable)
 {
-	(void)ImageHandle;			// Otherwise you get a compiler warning
+	(void)ImageHandle;			// Otherwise you get a compiler warning, and nobody likes those.
 	
 	
 	// TEXT ATTRIB: FG = YELLOW, BG = RED
