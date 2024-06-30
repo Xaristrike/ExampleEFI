@@ -29,6 +29,8 @@ EFI_STATUS EFIAPI efi_main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTable
 	
 	SystemTable->ConOut->OutputString(SystemTable->ConOut, u"yes. the 'ANY' key. you heard me.");
 	
+	SystemTable->ConOut->OutputString(SystemTable->ConOut, u"\n");
+	
 	// WAIT FOR KEYPRESS
 	EFI_INPUT_KEY key;
 	

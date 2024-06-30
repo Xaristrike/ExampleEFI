@@ -15,6 +15,8 @@ MOUNTDIR	= mymnt
 BOOTDIR		= mymnt/efi/boot
 EFIDIR		= efi
 
+QEMU		= qemu-system-x86_64
+QEMUNOG		= qemu-system-x86_64 -nographic
 QEMUDSK		= -drive file=/usr/share/ovmf/OVMF.fd,format=raw,if=pflash
 QEMUFLAGS	= -cdrom $(IMG)
 
@@ -48,21 +50,22 @@ dirs:
 .PHONY: qemu
 qemu: $(TARGET)
 	@echo "Booting with QEMU..."
-	@sudo qemu-system-x86_64 $(QEMUDSK) $(QEMUFLAGS)
+	@sudo $(QEMU) $(QEMUDSK) $(QEMUFLAGS)
 	@echo "Goodbye."
 
 
 .PHONY: qemunographic
 qemunographic: $(TARGET)
 	@echo "Booting with QEMU (terminal)..."
-	@sudo qemu-system-x86_64 $(QEMUDSK) $(QEMUFLAGS) -nographic
+	@sudo $(QEMUNOG) $(QEMUDSK) $(QEMUFLAGS)
 	@echo "Goodbye."
 
 
 .PHONY: clean
 clean:
-	@echo "Removing builds..."
+	@echo "Unmounting OS directory..."
 	@if mountpoint -q $(MOUNTDIR); then sudo umount $(DEVELDIR)/$(MOUNTDIR)/; fi
+	@echo "Removing build directories..."
 	@rm -rf $(MOUNTDIR)
 	@rm -rf $(TARGET)
 	@rm -rf $(IMG)
