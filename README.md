@@ -58,7 +58,9 @@ make clean
 
 "ExampleEFI" is a temporary name.
 
-During development, I was planning to name this application "AugerXenith"
+During development, I was planning
+
+to name this application "AugerXenith"
 
 after one of my favorite Doom WADs.
 
