@@ -1,8 +1,10 @@
-# ExampleEFI Application
+# Example EFI Application
 
 This repository contains an EFI (Extensible Firmware Interface) application written in C.
 
 ## Prerequisites
+
+### This application is made to be run in a Linux environment
 
 Before running this application, ensure you have the following tools and dependencies installed:
 

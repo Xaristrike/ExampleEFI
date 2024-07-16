@@ -32,7 +32,7 @@ all: clean dirs $(TARGET)
 $(TARGET): $(SRC) dirs
 	@echo "Creating BOOTX64.EFI..."
 	@$(CC) $(CFLAGS) $(CWARNFLAGS) $(CEXTRAFLAGS) -o $(EFIDIR)/$@ $<
-	@dd if=/dev/zero of=$(IMG) bs=1M count=512 > /dev/null 2>&1
+	@dd if=/dev/zero of=$(IMG) bs=1M count=512 >/dev/null 2>&1
 	@sudo $(MKFS) $(IMG) > /dev/null 2>&1
 	@sudo mount $(IMG) $(DEVELDIR)/$(MOUNTDIR)/
 	@sudo mkdir -p $(BOOTDIR)/
@@ -63,8 +63,7 @@ qemunographic: $(TARGET)
 
 .PHONY: clean
 clean:
-	@echo "Unmounting OS directory..."
-	@if mountpoint -q $(MOUNTDIR); then sudo umount $(DEVELDIR)/$(MOUNTDIR)/; fi
+	@if mountpoint -q $(MOUNTDIR); then echo "Unmounting OS directory..."; sudo umount $(DEVELDIR)/$(MOUNTDIR)/; fi
 	@echo "Removing build directories..."
 	@rm -rf $(MOUNTDIR)
 	@rm -rf $(TARGET)
