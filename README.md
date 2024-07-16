@@ -8,10 +8,10 @@ This repository contains an EFI (Extensible Firmware Interface) application writ
 
 Before running this application, ensure you have the following tools and dependencies installed:
 
-- `clang` compiler for compiling EFI executables.
-- `mkfs.vfat` utility for creating a file system on boot image.
-- `qemu-system` for running the application.
-- `make` for building and running the application
+- `clang` for compiling.
+- `mkfs.vfat` utility for creating the file system needed.
+- `make` for building.
+- `qemu-system` for running.
 
 ## Installing prerequisites
 
