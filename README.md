@@ -4,7 +4,7 @@ This repository contains an EFI (Extensible Firmware Interface) application writ
 
 ## Prerequisites
 
-### This application is made to be run in a Linux environment
+### This application is made to run in a Linux environment
 
 Before running this application, ensure you have the following tools and dependencies installed:
 
