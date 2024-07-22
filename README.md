@@ -54,7 +54,7 @@ To clean up build files and other temporary files:
 make clean
 ```
 
-## About the name
+## About the name "ExampleEFI"
 
 "ExampleEFI" is a temporary name.
 
@@ -64,4 +64,6 @@ to name this application "AugerXenith"
 
 after one of my favorite Doom WADs.
 
-Maybe this will happen in the future.
+Maybe this will happen sometime
+
+in the future.
