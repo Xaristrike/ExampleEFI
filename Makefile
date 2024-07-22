@@ -16,9 +16,11 @@ BOOTDIR		= mymnt/efi/boot
 EFIDIR		= efi
 
 QEMU		= qemu-system-x86_64
-QEMUNOG		= qemu-system-x86_64 -nographic
+TERM		= -nographic
 QEMUDSK		= -drive file=/usr/share/ovmf/OVMF.fd,format=raw,if=pflash
 QEMUFLAGS	= -cdrom $(IMG)
+
+SILENT		= >/dev/null 2>&1
 
 
 .PHONY: default
@@ -32,8 +34,8 @@ all: clean dirs $(TARGET)
 $(TARGET): $(SRC) dirs
 	@echo "Creating BOOTX64.EFI..."
 	@$(CC) $(CFLAGS) $(CWARNFLAGS) $(CEXTRAFLAGS) -o $(EFIDIR)/$@ $<
-	@dd if=/dev/zero of=$(IMG) bs=1M count=512 >/dev/null 2>&1
-	@sudo $(MKFS) $(IMG) > /dev/null 2>&1
+	@dd if=/dev/zero of=$(IMG) bs=1M count=512 $(SILENT)
+	@sudo $(MKFS) $(IMG) $(SILENT)
 	@sudo mount $(IMG) $(DEVELDIR)/$(MOUNTDIR)/
 	@sudo mkdir -p $(BOOTDIR)/
 	@sudo cp $(EFIDIR)/$(TARGET) $(BOOTDIR)/bootx64.efi
@@ -57,7 +59,7 @@ qemu: $(TARGET)
 .PHONY: qemunographic
 qemunographic: $(TARGET)
 	@echo "Booting with QEMU (terminal)..."
-	@sudo $(QEMUNOG) $(QEMUDSK) $(QEMUFLAGS)
+	@sudo $(QEMU) $(TERM) $(QEMUDSK) $(QEMUFLAGS)
 	@echo "Goodbye."
 
 
