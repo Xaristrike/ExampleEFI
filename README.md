@@ -4,7 +4,7 @@ This repository contains an EFI (Extensible Firmware Interface) application writ
 
 ## Prerequisites
 
-### This application is made to run in a Linux environment
+### !!!This application is made to run in a Linux environment!!!
 
 Before running this application, ensure you have the following tools and dependencies installed:
 
@@ -64,6 +64,4 @@ to name this application "AugerXenith"
 
 after one of my favorite Doom WADs.
 
-Maybe this will happen sometime
-
-in the future.
+Maybe this will happen sometime in the future.
