@@ -36,7 +36,7 @@ typedef struct
 	CHAR16	UnicodeChar;
 } EFI_INPUT_KEY;
 
-typedef EFI_STATUS (EFIAPI *EFI_INPUT_READ_KEY) (IN	EFI_SIMPLE_TEXT_INPUT_PROTOCOL	*This, OUT EFI_INPUT_KEY *Key);
+typedef EFI_STATUS (EFIAPI* EFI_INPUT_READ_KEY) (IN	EFI_SIMPLE_TEXT_INPUT_PROTOCOL* This, OUT EFI_INPUT_KEY* Key);
 
 typedef struct EFI_SIMPLE_TEXT_INPUT_PROTOCOL
 {
@@ -57,11 +57,11 @@ typedef struct EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL;
 
 #define EFI_TEXT_ATTR(Foreground,Background) ((Foreground) | ((Background) << 4))
 
-typedef EFI_STATUS (EFIAPI *EFI_TEXT_STRING) (IN EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL *This, IN CHAR16 *String);
+typedef EFI_STATUS (EFIAPI* EFI_TEXT_STRING) (IN EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL* This, IN CHAR16* String);
 
-typedef EFI_STATUS (EFIAPI *EFI_TEXT_SET_ATTRIBUTE) (IN EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL *This, IN UINTN Attribute);
+typedef EFI_STATUS (EFIAPI* EFI_TEXT_SET_ATTRIBUTE) (IN EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL* This, IN UINTN Attribute);
 
-typedef EFI_STATUS (EFIAPI *EFI_TEXT_CLEAR_SCREEN) (IN EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL *This);
+typedef EFI_STATUS (EFIAPI* EFI_TEXT_CLEAR_SCREEN) (IN EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL* This);
 
 typedef struct EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL
 {
@@ -121,12 +121,12 @@ typedef struct
 	void*								FirmwareVendor;
 	UINT32								FirmwareRevision;
 	void*								ConsoleInHandle;
-	EFI_SIMPLE_TEXT_INPUT_PROTOCOL		*ConIn;
+	EFI_SIMPLE_TEXT_INPUT_PROTOCOL*		ConIn;
 	void*								ConsoleOutHandle;
-	EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL		*ConOut;
+	EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL*	ConOut;
 	void*								StandardErrorHandle;
 	void*								StdErr;
-	EFI_RUNTIME_SERVICES				*RuntimeServices;
+	EFI_RUNTIME_SERVICES*				RuntimeServices;
 	void*								BootServices;
 	UINTN								NumberOfTableEntries;
 	void*								ConfigurationTable;
